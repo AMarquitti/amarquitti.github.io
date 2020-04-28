@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!-- saved from url=(0092)https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#0 -->
+<html>
+	<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+		<meta name="theme-color" content="#4F7DC9">
+
+		<title></title>
+		<link rel="stylesheet" href="./flutter_workshop_overactive_files/css">
+		<link rel="stylesheet" href="./flutter_workshop_overactive_files/icon">
+		<link rel="stylesheet" href="./flutter_workshop_overactive_files/codelab-elements.css">
+		<link rel="stylesheet" href="./flutter_workshop_overactive_files/prettify.css">
+		<style>
+			.success {
+				color: #1e8e3e;
+			}
+			.error {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<google-codelab id="" environment="web" feedback-link="" selected="0" google-codelab-ready="" codelab-title="">
+			<div id="drawer">
+				<div class="codelab-time-container" style="display: none;"></div>
+				<div class="steps">
+					<ol>
+						<li completed="" selected="">
+							<a href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#0">
+								<span class="step">
+									<span>Introducción</span>
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#1">
+								<span class="step">
+									<span>Configuración</span>
+								</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#2">
+								<span class="step">
+									<span>Comencemos!</span>
+								</span>
+							</a>
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div id="main">
+				<div id="steps">
+					<google-codelab-step label="Introducción" duration="0" step="1" selected="">
+
+								<table>
+									<tbody>
+										<tr>
+											<td colspan="1" rowspan="1">
+												<p class="image-container"><img style="width: 372.50px" src="./flutter_workshop_overactive_files/pasted image 0.png"><img style="width: 309.50px" src="./flutter_workshop_overactive_files/pasted image 0(1).png"></p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<p>
+									<strong>Última actualización:</strong>
+									2020-04-28</p>
+								<h2 is-upgraded="">
+									<strong>Objetivos del Workshop</strong>
+								</h2>
+								<p>Primero Bienvenido a este Workshop de Flutter, el objetivo del mismo es brindarte las herramientas y orientación en tus primeros pasos utilizando Flutter.</p>
+								<p>La idea principal es que te lleves algo más que un tutorial paso a paso, un valor agregado a simplemente ver o seguir un tutorial de los miles que podrás encontrar.
+								</p>
+								<p>Por ejemplo vamos a analizar los diferentes tipos de Widgets que ofrece Flutter uno de ellos será StatefulWidget, en cualquier lugar encontrarás mucha información acerca de su funcionamiento, incluso mucho más detallada, ahora, la idea de este Workshop es que además de conocer su funcionamiento, puedas saber que a la hora de re-utilizarlos es importante apoyarse en packages como
+								</p>
+								<p>
+									<a href="https://pub.dev/packages/flutter_hooks" target="_blank">
+										<paper-button class="colored" raised="">Flutter Hooks</paper-button>
+									</a>
+								</p>
+								<aside class="special">
+									<p>
+										<strong>Nota:
+										</strong>Hooks are a new kind of object that manages a Widget life-cycles. They exist for one reason: increase the code-sharing
+										<em>between</em>
+										widgets and as a complete replacement for StatefulWidget.</p>
+								</aside>
+								<p>Algo que te va a quedar dando vuelta y en el futuro cuando te animes a probar algo más desafiante, puedas sacarle provecho realmente.</p>
+								<h2 is-upgraded="">
+									<strong>Lo que se aprenderá</strong>
+								</h2>
+								<ul>
+									<li>Estructura básica de un proyecto</li>
+									<li>Introducción a Widgets</li>
+									<li>Tipos de Widgets cuando y como utilizarlos.</li>
+									<li>Widgets tree</li>
+									<li>Introducción de Widgets principales para el diseño de interfaz de usuario (Container, Center, Column, Row, etc)</li>
+									<li>Diferencia de Widgets en Android y iOS</li>
+									<li>State Management y patrones de diseño BLoC</li>
+									<li>Introducción a State Rebuilder</li>
+									<li>Navegación básica en la aplicación</li>
+									<li>Consumir datos desde API y utilizarlos en los diferentes Widgets</li>
+									<li>Todos estos puntos estarán acompañados de recomendaciones de los principales Packages a utilizar.</li>
+								</ul>
+								<h2 is-upgraded="">
+									<strong>Lo que se construirá</strong>
+								</h2>
+								<p>En este Workshop, se creará una aplicación basada en la API seleccionada para trabajar
+									<strong>OMDb API</strong>
+									:</p>
+								<p>
+									<a href="http://www.omdbapi.com/" target="_blank">
+										<paper-button class="colored" raised="">The Open Movie Database</paper-button>
+									</a>
+								</p>
+								<p>
+									<strong>CineActive</strong>
+								</p>
+								<ul>
+									<li>Intentaremos replicar el siguiente diseño con pequeñas variaciones entre las plataformas en la que estemos corriendo la aplicación Android &amp; iOS.</li>
+									<li>Se mostrará el listado de las películas consumidas desde la API.</li>
+									<li>Se podrá filtrar sobre los resultados obtenidos sin consumir nuevamente el servicio.
+									</li>
+									<li>Se podrá ver información detallada en una nueva pantalla de la película seleccionada.</li>
+								</ul>
+								<p class="image-container"><img style="width: 624.00px" src="./flutter_workshop_overactive_files/pasted image 0(2).png"></p>
+								<h2 is-upgraded="">
+									<strong>Lo que necesitará</strong>
+								</h2>
+								<p>Contar con el SDK instalado y configurado, utilizando como soporte el siguiente link:</p>
+								<p>
+									<a href="https://flutter.dev/docs/get-started/install" target="_blank">
+										<paper-button class="colored" raised="">Install Flutter</paper-button>
+									</a>
+								</p>
+								<p>Pondremos a disposición el siguiente repositorio, divido en diferentes features implementadas en el Workshop, deberás tenerlo para iniciar.</p>
+								<p>
+									<a href="https://repo.url/" target="_blank">
+										<paper-button class="colored" raised="">Repo URL</paper-button>
+									</a>
+								</p>
+					</google-codelab-step>
+					<google-codelab-step label="Configuración" duration="0" step="2">
+								<h2 is-upgraded="">
+									<strong>Soporte a configuración si se cree necesario</strong>
+								</h2>
+					</google-codelab-step>
+					<google-codelab-step label="Comencemos!" duration="0" step="3">
+								<h2 is-upgraded="">
+									<strong>¿Cuál es nuestro punto de partida?</strong>
+								</h2>
+								<p>En este punto debemos tener nuestro proyecto descargado y abierto en Android Studio, particularmente utilizo Visual Studio Code, veamos con que nos encontramos.</p>
+								<p>Lo primero que notarás es que el proyecto se encuentra en la carpeta
+								</p>
+								<pre><code><span class="pln">cineactive</span><span class="pun">/</span><span class="pln">flutter</span><span class="pun">/...</span></code></pre>
+								<p>Se ve un poco raro no?  esto es para mantener organizado el cross platform que ofrece Dart, en el futuro podríamos necesitar algo similar...</p>
+								<pre><code><span class="pln">cineactive</span><span class="pun">/</span><span class="pln">
+  aqueduct</span><span class="pun">/</span><span class="pln">
+  flutter</span><span class="pun">/</span><span class="pln">
+  angular</span><span class="pun">/</span><span class="pln">
+  shared</span><span class="pun">/</span></code></pre>
+								<h2 is-upgraded="">
+									<strong>Nuevo Proyecto:</strong>
+								</h2>
+								<p class="image-container"><img style="width: 458.91px" src="./flutter_workshop_overactive_files/pasted image 0(3).png"></p>
+								<p>Otro detalle a tener en cuenta es que el nombre de la aplicación tiene el prefijo app_ esto sirve para poder utilizar y compartir el contenido entre las diferentes plataformas de nuestro proyecto,  shared_cineactive nos permitirá,  por ejemplo, hacer uso de nuestros modelos compartidos, así como server_cineactive sería el nombre de nuestra aplicación de Aqueduct (Dart Server Side). Solo para tenerlo presente.</p>
+								<p>
+									<code>android:</code>
+									Directorio que aloja el código y archivos de configuraciones propio de android</p>
+								<p>
+									<code>ios:</code>
+									Directorio que aloja el código y archivos de configuraciones propio de iOS</p>
+								<p>
+									<code>lib:</code>
+									Directorio que aloja nuestro código Dart</p>
+								<p>
+									<code>pubspec.yml:</code>
+									Archivo de gestor de dependencias entre otras configuraciones adicionales como inclusión de assets y código de versión, etc.</p>
+								<p>
+									<code>main.dart:</code>
+									Punto de acceso de nuestra aplicación a través del método:</p>
+								<pre><code><span class="kwd">void</span><span class="pln"> main</span><span class="pun">()</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> runApp</span><span class="pun">(</span><span class="typ">MyApp</span><span class="pun">());</span></code></pre>
+								<h2 is-upgraded="">
+									<strong>Nuestro Proyecto - Feature - CA-001:</strong>
+								</h2>
+								<p>Es importante en principio y sin entrar en muchos detalles, crear una estructura básica para nuestro proyecto, en este punto Flutter no limita el uso de una arquitectura propia, pero puede resultar un gran desventaja si nuestro proyecto crece mucho y necesitamos mantener cierta independencia entre las diferentes capas como así también mantener nuestro código ordenado.</p>
+								<p>Para este Workshop usaremos la siguiente "capas" que nos ayudarán a entender y organizar más nuestro código.</p>
+								<p class="image-container"><img style="width: 444.50px" src="./flutter_workshop_overactive_files/pasted image 0(4).png"></p>
+								<p>
+									<code>presentation:</code>
+									La capa con la que va a interactuar el usuario, donde vivirá nuestra UI y los Widgets vinculados a la misma. En esta capa no deberá contener ninguna lógica (Algo que normalmente hacemos en nuestros primeros pasos, es normal ya que la lógica del negocio y el UI usan el mismo código).</p>
+								<p>
+									<code>application:</code>
+									La capa donde vivirán nuestros BLoC (Business Logic Components) que contendrán la lógica, es decir nuestros casos de uso, además de interactuar con la capa de presentación recibiendo y manejando las interacciones del usuario que despachen ciertos eventos.</p>
+								<p>
+									<code>infrastructure:</code>
+									La capa donde viven nuestros repositorios que se encargaran de comunicarse con el mundo exterior a través de una API o también obtener datos almacenados internamente por ejemplo si utilizamos Hive</p>
+								<p>
+									<code>config:</code>
+									Simplemente un directorio donde podremos almacenar configuraciones globales y el enrutamiento de la aplicación.</p>
+								<aside class="special">
+									<p>
+										<strong>Nota:
+										</strong>Esta estructura obviamente puede ser más compleja por ejemplo si agregamos una capa de dominio para independizar aún más las capas por ejemplo donde vivirán nuestras entidades, depende mucho de como quieran organizar su proyecto.</p>
+								</aside>
+								<h2 is-upgraded="">
+									<strong>Widgets:</strong>
+								</h2>
+								<p>Comencemos por analizar que son los "Widgets" de Flutter y cuales conviene usar en cada ocasión. Para esto haremos uso del ejemplo del contador  que viene por defecto al crear un nuevo proyecto, quizás ya lo has visto si probaste un poco Flutter.</p>
+								<p class="image-container"><img style="width: 624.00px" src="./flutter_workshop_overactive_files/pasted image 0(5).png"></p>
+								<h2 is-upgraded="">
+									<strong>StatefulWidget:</strong>
+								</h2>
+								<pre><code><span class="kwd">import</span><span class="pln"> </span><span class="str">'package:flutter/material.dart'</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">()</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> runApp</span><span class="pun">(</span><span class="typ">MyApp</span><span class="pun">());</span><span class="pln">
+
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">MyApp</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">StatelessWidget</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="com">// This widget is the root of your application.</span><span class="pln">
+  </span><span class="lit">@override</span><span class="pln">
+  </span><span class="typ">Widget</span><span class="pln"> build</span><span class="pun">(</span><span class="typ">BuildContext</span><span class="pln"> context</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="typ">MaterialApp</span><span class="pun">(</span><span class="pln">
+      title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Flutter Demo'</span><span class="pun">,</span><span class="pln">
+      theme</span><span class="pun">:</span><span class="pln"> </span><span class="typ">ThemeData</span><span class="pun">(</span><span class="pln">
+        </span><span class="com">// This is the theme of your application.</span><span class="pln">
+        </span><span class="com">//</span><span class="pln">
+        </span><span class="com">// Try running your application with "flutter run". You'll see the</span><span class="pln">
+        </span><span class="com">// application has a blue toolbar. Then, without quitting the app, try</span><span class="pln">
+        </span><span class="com">// changing the primarySwatch below to Colors.green and then invoke</span><span class="pln">
+        </span><span class="com">// "hot reload" (press "r" in the console where you ran "flutter run",</span><span class="pln">
+        </span><span class="com">// or simply save your changes to "hot reload" in a Flutter IDE).</span><span class="pln">
+        </span><span class="com">// Notice that the counter didn't reset back to zero; the application</span><span class="pln">
+        </span><span class="com">// is not restarted.</span><span class="pln">
+        primarySwatch</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Colors</span><span class="pun">.</span><span class="pln">blue</span><span class="pun">,</span><span class="pln">
+      </span><span class="pun">),</span><span class="pln">
+      home</span><span class="pun">:</span><span class="pln"> </span><span class="typ">MyHomePage</span><span class="pun">(</span><span class="pln">title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Flutter CineActive'</span><span class="pun">),</span><span class="pln">
+    </span><span class="pun">);</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">MyHomePage</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">StatefulWidget</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="typ">MyHomePage</span><span class="pun">({</span><span class="typ">Key</span><span class="pln"> key</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">title</span><span class="pun">})</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">super</span><span class="pun">(</span><span class="pln">key</span><span class="pun">:</span><span class="pln"> key</span><span class="pun">);</span><span class="pln">
+
+  </span><span class="com">// This widget is the home page of your application. It is stateful, meaning</span><span class="pln">
+  </span><span class="com">// that it has a State object (defined below) that contains fields that affect</span><span class="pln">
+  </span><span class="com">// how it looks.</span><span class="pln">
+
+  </span><span class="com">// This class is the configuration for the state. It holds the values (in this</span><span class="pln">
+  </span><span class="com">// case the title) provided by the parent (in this case the App widget) and</span><span class="pln">
+  </span><span class="com">// used by the build method of the State. Fields in a Widget subclass are</span><span class="pln">
+  </span><span class="com">// always marked "final".</span><span class="pln">
+
+  </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> title</span><span class="pun">;</span><span class="pln">
+
+  </span><span class="lit">@override</span><span class="pln">
+  </span><span class="typ">_MyHomePageState</span><span class="pln"> createState</span><span class="pun">()</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="typ">_MyHomePageState</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">_MyHomePageState</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">State</span><span class="pun">&lt;</span><span class="typ">MyHomePage</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">int</span><span class="pln"> _counter </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+
+  </span><span class="kwd">void</span><span class="pln"> _incrementCounter</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    setState</span><span class="pun">(()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// This call to setState tells the Flutter framework that something has</span><span class="pln">
+      </span><span class="com">// changed in this State, which causes it to rerun the build method below</span><span class="pln">
+      </span><span class="com">// so that the display can reflect the updated values. If we changed</span><span class="pln">
+      </span><span class="com">// _counter without calling setState(), then the build method would not be</span><span class="pln">
+      </span><span class="com">// called again, and so nothing would appear to happen.</span><span class="pln">
+      _counter</span><span class="pun">++;</span><span class="pln">
+    </span><span class="pun">});</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="lit">@override</span><span class="pln">
+  </span><span class="typ">Widget</span><span class="pln"> build</span><span class="pun">(</span><span class="typ">BuildContext</span><span class="pln"> context</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// This method is rerun every time setState is called, for instance as done</span><span class="pln">
+    </span><span class="com">// by the _incrementCounter method above.</span><span class="pln">
+    </span><span class="com">//</span><span class="pln">
+    </span><span class="com">// The Flutter framework has been optimized to make rerunning build methods</span><span class="pln">
+    </span><span class="com">// fast, so that you can just rebuild anything that needs updating rather</span><span class="pln">
+    </span><span class="com">// than having to individually change instances of widgets.</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="typ">Scaffold</span><span class="pun">(</span><span class="pln">
+      appBar</span><span class="pun">:</span><span class="pln"> </span><span class="typ">AppBar</span><span class="pun">(</span><span class="pln">
+        </span><span class="com">// Here we take the value from the MyHomePage object that was created by</span><span class="pln">
+        </span><span class="com">// the App.build method, and use it to set our appbar title.</span><span class="pln">
+        title</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Text</span><span class="pun">(</span><span class="pln">widget</span><span class="pun">.</span><span class="pln">title</span><span class="pun">),</span><span class="pln">
+      </span><span class="pun">),</span><span class="pln">
+      body</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Center</span><span class="pun">(</span><span class="pln">
+        </span><span class="com">// Center is a layout widget. It takes a single child and positions it</span><span class="pln">
+        </span><span class="com">// in the middle of the parent.</span><span class="pln">
+        child</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Column</span><span class="pun">(</span><span class="pln">
+          </span><span class="com">// Column is also a layout widget. It takes a list of children and</span><span class="pln">
+          </span><span class="com">// arranges them vertically. By default, it sizes itself to fit its</span><span class="pln">
+          </span><span class="com">// children horizontally, and tries to be as tall as its parent.</span><span class="pln">
+          </span><span class="com">//</span><span class="pln">
+          </span><span class="com">// Invoke "debug painting" (press "p" in the console, choose the</span><span class="pln">
+          </span><span class="com">// "Toggle Debug Paint" action from the Flutter Inspector in Android</span><span class="pln">
+          </span><span class="com">// Studio, or the "Toggle Debug Paint" command in Visual Studio Code)</span><span class="pln">
+          </span><span class="com">// to see the wireframe for each widget.</span><span class="pln">
+          </span><span class="com">//</span><span class="pln">
+          </span><span class="com">// Column has various properties to control how it sizes itself and</span><span class="pln">
+          </span><span class="com">// how it positions its children. Here we use mainAxisAlignment to</span><span class="pln">
+          </span><span class="com">// center the children vertically; the main axis here is the vertical</span><span class="pln">
+          </span><span class="com">// axis because Columns are vertical (the cross axis would be</span><span class="pln">
+          </span><span class="com">// horizontal).</span><span class="pln">
+          mainAxisAlignment</span><span class="pun">:</span><span class="pln"> </span><span class="typ">MainAxisAlignment</span><span class="pun">.</span><span class="pln">center</span><span class="pun">,</span><span class="pln">
+          children</span><span class="pun">:</span><span class="pln"> </span><span class="pun">&lt;</span><span class="typ">Widget</span><span class="pun">&gt;[</span><span class="pln">
+            </span><span class="typ">Text</span><span class="pun">(</span><span class="pln">
+              </span><span class="str">'You have pushed the button this many times:'</span><span class="pun">,</span><span class="pln">
+            </span><span class="pun">),</span><span class="pln">
+            </span><span class="typ">Text</span><span class="pun">(</span><span class="pln">
+              </span><span class="str">'$_counter'</span><span class="pun">,</span><span class="pln">
+              style</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Theme</span><span class="pun">.</span><span class="pln">of</span><span class="pun">(</span><span class="pln">context</span><span class="pun">).</span><span class="pln">textTheme</span><span class="pun">.</span><span class="pln">display1</span><span class="pun">,</span><span class="pln">
+            </span><span class="pun">),</span><span class="pln">
+          </span><span class="pun">],</span><span class="pln">
+        </span><span class="pun">),</span><span class="pln">
+      </span><span class="pun">),</span><span class="pln">
+      floatingActionButton</span><span class="pun">:</span><span class="pln"> </span><span class="typ">FloatingActionButton</span><span class="pun">(</span><span class="pln">
+        onPressed</span><span class="pun">:</span><span class="pln"> _incrementCounter</span><span class="pun">,</span><span class="pln">
+        tooltip</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Increment'</span><span class="pun">,</span><span class="pln">
+        child</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Icon</span><span class="pun">(</span><span class="typ">Icons</span><span class="pun">.</span><span class="kwd">add</span><span class="pun">),</span><span class="pln">
+      </span><span class="pun">),</span><span class="pln"> </span><span class="com">// This trailing comma makes auto-formatting nicer for build methods.</span><span class="pln">
+    </span><span class="pun">);</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+								<p class="image-container"><img style="width: 359.58px" src="./flutter_workshop_overactive_files/pasted image 0(6).png"></p>
+
+					</google-codelab-step>
+				</div>
+				<div id="controls">
+					<div id="fabs">
+						<a href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#" id="previous-step" title="Previous step" disappear="">Back</a>
+						<div class="spacer"></div>
+						<a href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#" id="next-step" title="Next step">Next</a>
+						<a href="https://codelabs-preview.appspot.com/" id="done" hidden="" title="Codelab complete">Done</a>
+					</div>
+				</div>
+			</div>
+		</google-codelab>
+
+		<script async="">
+			document.addEventListener("DOMContentLoaded", function () {
+var pubBtn = document.getElementById('publishButton');
+var pubForm = document.getElementById('publishForm');
+var pubStatus = document.getElementById('publishButtonStatus');
+
+pubForm.addEventListener('submit', function (e) {
+e.preventDefault();
+pubBtn.disabled = true;
+pubStatus.textContent = '';
+pubStatus.classList.remove('success');
+pubStatus.classList.remove('error');
+
+var req = new XMLHttpRequest();
+
+var onError = function () {
+var msg = 'Request failed';
+if (req.statusText) {
+msg += ' with status "' + req.statusText + '"';
+}
+if (req.responseText) {
+msg += ': ' + req.responseText;
+}
+pubStatus.classList.add('error');
+pubStatus.textContent = msg;
+pubBtn.disabled = false;
+};
+
+req.addEventListener('load', function () {
+if (req.status != 200) {
+onError();
+return;
+}
+pubStatus.textContent = ('Publication request submitted' + ' (reload preview to re-publish)');
+pubStatus.classList.add('success');
+});
+req.addEventListener('error', onError);
+req.addEventListener('abort', onError);
+req.open("post", pubForm.action);
+req.send(new FormData(pubForm));
+});
+});
+		</script>
+
+		<script src="./flutter_workshop_overactive_files/native-shim.js"></script>
+		<script src="./flutter_workshop_overactive_files/custom-elements.min.js"></script>
+		<script src="./flutter_workshop_overactive_files/prettify.js"></script>
+		<script src="./flutter_workshop_overactive_files/codelab-elements.js"></script>
+		<script src="./flutter_workshop_overactive_files/api.js"></script>
+
+
+	</body>
+</html>
