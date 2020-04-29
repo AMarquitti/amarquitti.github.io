@@ -1,217 +1,547 @@
 <!DOCTYPE html>
 <!-- saved from url=(0092)https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#0 -->
 <html>
-	<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-		<meta name="theme-color" content="#4F7DC9">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta name="theme-color" content="#4F7DC9" />
 
-		<title></title>
-		<link rel="stylesheet" href="./flutter_workshop_overactive_files/css">
-		<link rel="stylesheet" href="./flutter_workshop_overactive_files/icon">
-		<link rel="stylesheet" href="./flutter_workshop_overactive_files/codelab-elements.css">
-		<link rel="stylesheet" href="./flutter_workshop_overactive_files/prettify.css">
-		<style>
-			.success {
-				color: #1e8e3e;
-			}
-			.error {
-				color: red;
-			}
-		</style>
-	</head>
-	<body>
-		<google-codelab id="" environment="web" feedback-link="" selected="0" google-codelab-ready="" codelab-title="">
-			<div id="drawer">
-				<div class="codelab-time-container" style="display: none;"></div>
-				<div class="steps">
-					<ol>
-						<li completed="" selected="">
-							<a href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#0">
-								<span class="step">
-									<span>Introducción</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#1">
-								<span class="step">
-									<span>Configuración</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#2">
-								<span class="step">
-									<span>Comencemos!</span>
-								</span>
-							</a>
-						</li>
-					</ol>
-				</div>
-			</div>
-			<div id="main">
-				<div id="steps">
-					<google-codelab-step label="Introducción" duration="0" step="1" selected="">
-
-								<table>
-									<tbody>
-										<tr>
-											<td colspan="1" rowspan="1">
-												<p class="image-container"><img style="width: 372.50px" src="./flutter_workshop_overactive_files/pasted image 0.png"><img style="width: 309.50px" src="./flutter_workshop_overactive_files/pasted image 0(1).png"></p>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-								<p>
-									<strong>Última actualización:</strong>
-									2020-04-28</p>
-								<h2 is-upgraded="">
-									<strong>Objetivos del Workshop</strong>
-								</h2>
-								<p>Primero Bienvenido a este Workshop de Flutter, el objetivo del mismo es brindarte las herramientas y orientación en tus primeros pasos utilizando Flutter.</p>
-								<p>La idea principal es que te lleves algo más que un tutorial paso a paso, un valor agregado a simplemente ver o seguir un tutorial de los miles que podrás encontrar.
-								</p>
-								<p>Por ejemplo vamos a analizar los diferentes tipos de Widgets que ofrece Flutter uno de ellos será StatefulWidget, en cualquier lugar encontrarás mucha información acerca de su funcionamiento, incluso mucho más detallada, ahora, la idea de este Workshop es que además de conocer su funcionamiento, puedas saber que a la hora de re-utilizarlos es importante apoyarse en packages como
-								</p>
-								<p>
-									<a href="https://pub.dev/packages/flutter_hooks" target="_blank">
-										<paper-button class="colored" raised="">Flutter Hooks</paper-button>
-									</a>
-								</p>
-								<aside class="special">
-									<p>
-										<strong>Nota:
-										</strong>Hooks are a new kind of object that manages a Widget life-cycles. They exist for one reason: increase the code-sharing
-										<em>between</em>
-										widgets and as a complete replacement for StatefulWidget.</p>
-								</aside>
-								<p>Algo que te va a quedar dando vuelta y en el futuro cuando te animes a probar algo más desafiante, puedas sacarle provecho realmente.</p>
-								<h2 is-upgraded="">
-									<strong>Lo que se aprenderá</strong>
-								</h2>
-								<ul>
-									<li>Estructura básica de un proyecto</li>
-									<li>Introducción a Widgets</li>
-									<li>Tipos de Widgets cuando y como utilizarlos.</li>
-									<li>Widgets tree</li>
-									<li>Introducción de Widgets principales para el diseño de interfaz de usuario (Container, Center, Column, Row, etc)</li>
-									<li>Diferencia de Widgets en Android y iOS</li>
-									<li>State Management y patrones de diseño BLoC</li>
-									<li>Introducción a State Rebuilder</li>
-									<li>Navegación básica en la aplicación</li>
-									<li>Consumir datos desde API y utilizarlos en los diferentes Widgets</li>
-									<li>Todos estos puntos estarán acompañados de recomendaciones de los principales Packages a utilizar.</li>
-								</ul>
-								<h2 is-upgraded="">
-									<strong>Lo que se construirá</strong>
-								</h2>
-								<p>En este Workshop, se creará una aplicación basada en la API seleccionada para trabajar
-									<strong>OMDb API</strong>
-									:</p>
-								<p>
-									<a href="http://www.omdbapi.com/" target="_blank">
-										<paper-button class="colored" raised="">The Open Movie Database</paper-button>
-									</a>
-								</p>
-								<p>
-									<strong>CineActive</strong>
-								</p>
-								<ul>
-									<li>Intentaremos replicar el siguiente diseño con pequeñas variaciones entre las plataformas en la que estemos corriendo la aplicación Android &amp; iOS.</li>
-									<li>Se mostrará el listado de las películas consumidas desde la API.</li>
-									<li>Se podrá filtrar sobre los resultados obtenidos sin consumir nuevamente el servicio.
-									</li>
-									<li>Se podrá ver información detallada en una nueva pantalla de la película seleccionada.</li>
-								</ul>
-								<p class="image-container"><img style="width: 624.00px" src="./flutter_workshop_overactive_files/pasted image 0(2).png"></p>
-								<h2 is-upgraded="">
-									<strong>Lo que necesitará</strong>
-								</h2>
-								<p>Contar con el SDK instalado y configurado, utilizando como soporte el siguiente link:</p>
-								<p>
-									<a href="https://flutter.dev/docs/get-started/install" target="_blank">
-										<paper-button class="colored" raised="">Install Flutter</paper-button>
-									</a>
-								</p>
-								<p>Pondremos a disposición el siguiente repositorio, divido en diferentes features implementadas en el Workshop, deberás tenerlo para iniciar.</p>
-								<p>
-									<a href="https://repo.url/" target="_blank">
-										<paper-button class="colored" raised="">Repo URL</paper-button>
-									</a>
-								</p>
-					</google-codelab-step>
-					<google-codelab-step label="Configuración" duration="0" step="2">
-								<h2 is-upgraded="">
-									<strong>Soporte a configuración si se cree necesario</strong>
-								</h2>
-					</google-codelab-step>
-					<google-codelab-step label="Comencemos!" duration="0" step="3">
-								<h2 is-upgraded="">
-									<strong>¿Cuál es nuestro punto de partida?</strong>
-								</h2>
-								<p>En este punto debemos tener nuestro proyecto descargado y abierto en Android Studio, particularmente utilizo Visual Studio Code, veamos con que nos encontramos.</p>
-								<p>Lo primero que notarás es que el proyecto se encuentra en la carpeta
-								</p>
-								<pre><code><span class="pln">cineactive</span><span class="pun">/</span><span class="pln">flutter</span><span class="pun">/...</span></code></pre>
-								<p>Se ve un poco raro no?  esto es para mantener organizado el cross platform que ofrece Dart, en el futuro podríamos necesitar algo similar...</p>
-								<pre><code><span class="pln">cineactive</span><span class="pun">/</span><span class="pln">
+    <title></title>
+    <link rel="stylesheet" href="./flutter_workshop_overactive_files/css" />
+    <link rel="stylesheet" href="./flutter_workshop_overactive_files/icon" />
+    <link
+      rel="stylesheet"
+      href="./flutter_workshop_overactive_files/codelab-elements.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./flutter_workshop_overactive_files/prettify.css"
+    />
+    <style>
+      .success {
+        color: #1e8e3e;
+      }
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <google-codelab
+      id=""
+      environment="web"
+      feedback-link=""
+      selected="0"
+      google-codelab-ready=""
+      codelab-title=""
+      ><div id="drawer">
+        <div class="codelab-time-container" style="display: none;"></div>
+        <div class="steps">
+          <ol>
+            <li completed="" selected="">
+              <a
+                href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#0"
+                ><span class="step"><span>Introducción</span></span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#1"
+                ><span class="step"><span>Configuración</span></span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#2"
+                ><span class="step"><span>Comencemos!</span></span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#3"
+                ><span class="step"
+                  ><span>Widgets y Gestión de Dependencias</span></span
+                ></a
+              >
+            </li>
+          </ol>
+        </div>
+        <div class="metadata">
+          <a
+            href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#"
+            id="codelab-feedback"
+            ><i class="material-icons">bug_report</i> Report a mistake</a
+          >
+        </div>
+      </div>
+      <div id="codelab-title">
+        <div id="codelab-nav-buttons">
+          <a href="https://codelabs-preview.appspot.com/" id="arrow-back"
+            ><i class="material-icons">close</i></a
+          ><a
+            href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#"
+            id="menu"
+            ><i class="material-icons">menu</i></a
+          >
+        </div>
+        <div class="codelab-time-container" style="display: none;"></div>
+        <devsite-user></devsite-user>
+      </div>
+      <div id="main">
+        <div id="steps">
+          <google-codelab-step
+            label="Introducción"
+            duration="0"
+            step="1"
+            selected=""
+            >
+                <table>
+                  <tbody>
+                    <tr>
+                      <td colspan="1" rowspan="1">
+                        <p class="image-container">
+                          <img
+                            style="width: 372.5px;"
+                            src="./flutter_workshop_overactive_files/pasted image 0.png"
+                          /><img
+                            style="width: 309.5px;"
+                            src="./flutter_workshop_overactive_files/pasted image 0(1).png"
+                          />
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p><strong>Última actualización:</strong> 2020-04-28</p>
+                <h2 is-upgraded=""><strong>Objetivos del Workshop</strong></h2>
+                <p>
+                  Primero Bienvenido a este Workshop de Flutter, el objetivo del
+                  mismo es brindarte las herramientas y orientación en tus
+                  primeros pasos utilizando Flutter.
+                </p>
+                <p>
+                  La idea principal es que te lleves algo más que un tutorial
+                  paso a paso, un valor agregado a simplemente ver o seguir un
+                  tutorial de los miles que podrás encontrar.
+                </p>
+                <p>
+                  Por ejemplo vamos a analizar los diferentes tipos de Widgets
+                  que ofrece Flutter uno de ellos será StatefulWidget, en
+                  cualquier lugar encontrarás mucha información acerca de su
+                  funcionamiento, incluso mucho más detallada, ahora, la idea de
+                  este Workshop es que además de conocer su funcionamiento,
+                  puedas saber que a la hora de re-utilizarlos es importante
+                  apoyarse en packages como
+                </p>
+                <p>
+                  <a
+                    href="https://pub.dev/packages/flutter_hooks"
+                    target="_blank"
+                    ><paper-button class="colored" raised=""
+                      >Flutter Hooks</paper-button
+                    ></a
+                  >
+                </p>
+                <aside class="special">
+                  <p>
+                    <strong>Nota: </strong>Hooks are a new kind of object that
+                    manages a Widget life-cycles. They exist for one reason:
+                    increase the code-sharing <em>between</em> widgets and as a
+                    complete replacement for StatefulWidget.
+                  </p>
+                </aside>
+                <p>
+                  Algo que te va a quedar dando vuelta y en el futuro cuando te
+                  animes a probar algo más desafiante, puedas sacarle provecho
+                  realmente.
+                </p>
+                <h2 is-upgraded=""><strong>Lo que se aprenderá</strong></h2>
+                <ul>
+                  <li>Estructura básica de un proyecto</li>
+                  <li>Introducción a Widgets</li>
+                  <li>Tipos de Widgets cuando y como utilizarlos.</li>
+                  <li>Widgets tree</li>
+                  <li>
+                    Introducción de Widgets principales para el diseño de
+                    interfaz de usuario (Container, Center, Column, Row, etc)
+                  </li>
+                  <li>Diferencia de Widgets en Android y iOS</li>
+                  <li>State Management y patrones de diseño BLoC</li>
+                  <li>Introducción a State Rebuilder</li>
+                  <li>Navegación básica en la aplicación</li>
+                  <li>
+                    Consumir datos desde API y utilizarlos en los diferentes
+                    Widgets
+                  </li>
+                  <li>
+                    Todos estos puntos estarán acompañados de recomendaciones de
+                    los principales Packages a utilizar.
+                  </li>
+                </ul>
+                <h2 is-upgraded=""><strong>Lo que se construirá</strong></h2>
+                <p>
+                  En este Workshop, se creará una aplicación basada en la API
+                  seleccionada para trabajar <strong>OMDb API</strong> :
+                </p>
+                <p>
+                  <a href="http://www.omdbapi.com/" target="_blank"
+                    ><paper-button class="colored" raised=""
+                      >The Open Movie Database</paper-button
+                    ></a
+                  >
+                </p>
+                <p><strong>CineActive</strong></p>
+                <ul>
+                  <li>
+                    Intentaremos replicar el siguiente diseño con pequeñas
+                    variaciones entre las plataformas en la que estemos
+                    corriendo la aplicación Android &amp; iOS.
+                  </li>
+                  <li>
+                    Se mostrará el listado de las películas consumidas desde la
+                    API.
+                  </li>
+                  <li>
+                    Se podrá filtrar sobre los resultados obtenidos sin consumir
+                    nuevamente el servicio.
+                  </li>
+                  <li>
+                    Se podrá ver información detallada en una nueva pantalla de
+                    la película seleccionada.
+                  </li>
+                </ul>
+                <p class="image-container">
+                  <img
+                    style="width: 624px;"
+                    src="./flutter_workshop_overactive_files/pasted image 0(2).png"
+                  />
+                </p>
+                <h2 is-upgraded=""><strong>Lo que necesitará</strong></h2>
+                <p>
+                  Contar con el SDK instalado y configurado, utilizando como
+                  soporte el siguiente link:
+                </p>
+                <p>
+                  <a
+                    href="https://flutter.dev/docs/get-started/install"
+                    target="_blank"
+                    ><paper-button class="colored" raised=""
+                      >Install Flutter</paper-button
+                    ></a
+                  >
+                </p>
+                <p>
+                  Pondremos a disposición el siguiente repositorio, divido en
+                  diferentes features implementadas en el Workshop, deberás
+                  tenerlo para iniciar.
+                </p>
+                <p>
+                  <a href="https://repo.url/" target="_blank"
+                    ><paper-button class="colored" raised=""
+                      >Repo URL</paper-button
+                    ></a
+                  >
+                </p>
+</google-codelab-step
+          ><google-codelab-step label="Configuración" duration="0" step="2"
+            >
+                <h2 is-upgraded="">
+                  <strong>Soporte a configuración si se cree necesario</strong>
+                </h2>
+</google-codelab-step
+          ><google-codelab-step label="Comencemos!" duration="0" step="3"
+            >
+                <h2 is-upgraded="">
+                  <strong>¿Cuál es nuestro punto de partida?</strong>
+                </h2>
+                <p>
+                  En este punto debemos tener nuestro proyecto descargado y
+                  abierto en Android Studio, particularmente utilizo Visual
+                  Studio Code, veamos con que nos encontramos.
+                </p>
+                <p>
+                  Lo primero que notarás es que el proyecto se encuentra en la
+                  carpeta
+                </p>
+                <pre><code><span class="pln">cineactive</span><span class="pun">/</span><span class="pln">flutter</span><span class="pun">/...</span></code></pre>
+                <p>
+                  Se ve un poco raro no? esto es para mantener organizado el
+                  cross platform que ofrece Dart, en el futuro podríamos
+                  necesitar algo similar...
+                </p>
+                <pre><code><span class="pln">cineactive</span><span class="pun">/</span><span class="pln">
   aqueduct</span><span class="pun">/</span><span class="pln">
   flutter</span><span class="pun">/</span><span class="pln">
   angular</span><span class="pun">/</span><span class="pln">
   shared</span><span class="pun">/</span></code></pre>
-								<h2 is-upgraded="">
-									<strong>Nuevo Proyecto:</strong>
-								</h2>
-								<p class="image-container"><img style="width: 458.91px" src="./flutter_workshop_overactive_files/pasted image 0(3).png"></p>
-								<p>Otro detalle a tener en cuenta es que el nombre de la aplicación tiene el prefijo app_ esto sirve para poder utilizar y compartir el contenido entre las diferentes plataformas de nuestro proyecto,  shared_cineactive nos permitirá,  por ejemplo, hacer uso de nuestros modelos compartidos, así como server_cineactive sería el nombre de nuestra aplicación de Aqueduct (Dart Server Side). Solo para tenerlo presente.</p>
-								<p>
-									<code>android:</code>
-									Directorio que aloja el código y archivos de configuraciones propio de android</p>
-								<p>
-									<code>ios:</code>
-									Directorio que aloja el código y archivos de configuraciones propio de iOS</p>
-								<p>
-									<code>lib:</code>
-									Directorio que aloja nuestro código Dart</p>
-								<p>
-									<code>pubspec.yml:</code>
-									Archivo de gestor de dependencias entre otras configuraciones adicionales como inclusión de assets y código de versión, etc.</p>
-								<p>
-									<code>main.dart:</code>
-									Punto de acceso de nuestra aplicación a través del método:</p>
-								<pre><code><span class="kwd">void</span><span class="pln"> main</span><span class="pun">()</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> runApp</span><span class="pun">(</span><span class="typ">MyApp</span><span class="pun">());</span></code></pre>
-								<h2 is-upgraded="">
-									<strong>Nuestro Proyecto - Feature - CA-001:</strong>
-								</h2>
-								<p>Es importante en principio y sin entrar en muchos detalles, crear una estructura básica para nuestro proyecto, en este punto Flutter no limita el uso de una arquitectura propia, pero puede resultar un gran desventaja si nuestro proyecto crece mucho y necesitamos mantener cierta independencia entre las diferentes capas como así también mantener nuestro código ordenado.</p>
-								<p>Para este Workshop usaremos la siguiente "capas" que nos ayudarán a entender y organizar más nuestro código.</p>
-								<p class="image-container"><img style="width: 444.50px" src="./flutter_workshop_overactive_files/pasted image 0(4).png"></p>
-								<p>
-									<code>presentation:</code>
-									La capa con la que va a interactuar el usuario, donde vivirá nuestra UI y los Widgets vinculados a la misma. En esta capa no deberá contener ninguna lógica (Algo que normalmente hacemos en nuestros primeros pasos, es normal ya que la lógica del negocio y el UI usan el mismo código).</p>
-								<p>
-									<code>application:</code>
-									La capa donde vivirán nuestros BLoC (Business Logic Components) que contendrán la lógica, es decir nuestros casos de uso, además de interactuar con la capa de presentación recibiendo y manejando las interacciones del usuario que despachen ciertos eventos.</p>
-								<p>
-									<code>infrastructure:</code>
-									La capa donde viven nuestros repositorios que se encargaran de comunicarse con el mundo exterior a través de una API o también obtener datos almacenados internamente por ejemplo si utilizamos Hive</p>
-								<p>
-									<code>config:</code>
-									Simplemente un directorio donde podremos almacenar configuraciones globales y el enrutamiento de la aplicación.</p>
-								<aside class="special">
-									<p>
-										<strong>Nota:
-										</strong>Esta estructura obviamente puede ser más compleja por ejemplo si agregamos una capa de dominio para independizar aún más las capas por ejemplo donde vivirán nuestras entidades, depende mucho de como quieran organizar su proyecto.</p>
-								</aside>
-								<h2 is-upgraded="">
-									<strong>Widgets:</strong>
-								</h2>
-								<p>Comencemos por analizar que son los "Widgets" de Flutter y cuales conviene usar en cada ocasión. Para esto haremos uso del ejemplo del contador  que viene por defecto al crear un nuevo proyecto, quizás ya lo has visto si probaste un poco Flutter.</p>
-								<p class="image-container"><img style="width: 624.00px" src="./flutter_workshop_overactive_files/pasted image 0(5).png"></p>
-								<h2 is-upgraded="">
-									<strong>StatefulWidget:</strong>
-								</h2>
-								<pre><code><span class="kwd">import</span><span class="pln"> </span><span class="str">'package:flutter/material.dart'</span><span class="pun">;</span><span class="pln">
+                <h2 is-upgraded=""><strong>Nuevo Proyecto:</strong></h2>
+                <p class="image-container">
+                  <img
+                    style="width: 458.91px;"
+                    src="./flutter_workshop_overactive_files/pasted image 0(3).png"
+                  />
+                </p>
+                <p>
+                  Otro detalle a tener en cuenta es que el nombre de la
+                  aplicación tiene el prefijo app_ esto sirve para poder
+                  utilizar y compartir el contenido entre las diferentes
+                  plataformas de nuestro proyecto, shared_cineactive nos
+                  permitirá, por ejemplo, hacer uso de nuestros modelos
+                  compartidos, así como server_cineactive sería el nombre de
+                  nuestra aplicación de Aqueduct (Dart Server Side). Solo para
+                  tenerlo presente.
+                </p>
+                <p>
+                  <code>android:</code> Directorio que aloja el código y
+                  archivos de configuraciones propio de android
+                </p>
+                <p>
+                  <code>ios:</code> Directorio que aloja el código y archivos de
+                  configuraciones propio de iOS
+                </p>
+                <p>
+                  <code>lib:</code> Directorio que aloja nuestro código Dart
+                </p>
+                <p>
+                  <code>pubspec.yaml:</code> Archivo de gestor de dependencias
+                  entre otras configuraciones adicionales como inclusión de
+                  assets y código de versión, etc.
+                </p>
+                <p>
+                  <code>main.dart:</code> Punto de acceso de nuestra aplicación
+                  a través del método:
+                </p>
+                <pre><code><span class="kwd">void</span><span class="pln"> main</span><span class="pun">()</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> runApp</span><span class="pun">(</span><span class="typ">MyApp</span><span class="pun">());</span></code></pre>
+                <h2 is-upgraded="">
+                  <strong>Nuestro Proyecto - Feature - CA-001:</strong>
+                </h2>
+                <p>
+                  Es importante en principio y sin entrar en muchos detalles,
+                  crear una estructura básica para nuestro proyecto, en este
+                  punto Flutter no limita el uso de una arquitectura propia,
+                  pero puede resultar un gran desventaja si nuestro proyecto
+                  crece mucho y necesitamos mantener cierta independencia entre
+                  las diferentes capas como así también mantener nuestro código
+                  ordenado.
+                </p>
+                <p>
+                  Para este Workshop usaremos la siguiente "capas" que nos
+                  ayudarán a entender y organizar más nuestro código.
+                </p>
+                <p class="image-container">
+                  <img
+                    style="width: 444.5px;"
+                    src="./flutter_workshop_overactive_files/pasted image 0(4).png"
+                  />
+                </p>
+                <p>
+                  <code>presentation:</code> La capa con la que va a interactuar
+                  el usuario, donde vivirá nuestra UI y los Widgets vinculados a
+                  la misma. En esta capa no deberá contener ninguna lógica (Algo
+                  que normalmente hacemos en nuestros primeros pasos, es normal
+                  ya que la lógica del negocio y el UI usan el mismo código).
+                </p>
+                <p>
+                  <code>application:</code> La capa donde vivirán nuestros BLoC
+                  (Business Logic Components) que contendrán la lógica, es decir
+                  nuestros casos de uso, además de interactuar con la capa de
+                  presentación recibiendo y manejando las interacciones del
+                  usuario que despachen ciertos eventos.
+                </p>
+                <p>
+                  <code>infrastructure:</code> La capa donde viven nuestros
+                  repositorios que se encargaran de comunicarse con el mundo
+                  exterior a través de una API o también obtener datos
+                  almacenados internamente por ejemplo si utilizamos Hive
+                </p>
+                <p>
+                  <code>config:</code> Simplemente un directorio donde podremos
+                  almacenar configuraciones globales y el enrutamiento de la
+                  aplicación.
+                </p>
+                <aside class="special">
+                  <p>
+                    <strong>Nota: </strong>Esta estructura obviamente puede ser
+                    más compleja por ejemplo si agregamos una capa de dominio
+                    para independizar aún más las capas por ejemplo donde
+                    vivirán nuestras entidades, depende mucho de como quieran
+                    organizar su proyecto.
+                  </p>
+                </aside>
+</google-codelab-step
+          ><google-codelab-step
+            label="Widgets y Gestión de Dependencias"
+            duration="0"
+            step="4"
+            >
+                <h2 is-upgraded=""><strong>Widgets:</strong></h2>
+                <p>
+                  Comencemos por analizar que son los "Widgets" de Flutter y
+                  cuales conviene usar en cada ocasión. Para esto haremos uso
+                  del ejemplo del contador que viene por defecto al crear un
+                  nuevo proyecto, quizás ya lo has visto si probaste un poco
+                  Flutter. Cubriremos SatefulWidget, StatelessWidget y
+                  InheritedWidget.
+                </p>
+                <p class="image-container">
+                  <img
+                    style="width: 624px;"
+                    src="./flutter_workshop_overactive_files/pasted image 0(5).png"
+                  />
+                </p>
+                <h2 is-upgraded=""><strong>Pit Stop:</strong></h2>
+                <p>
+                  Antes de continuar con nuestro querido StatefulWidget y es
+                  recomendable al comienzo de nuestro proyecto incluir algunos
+                  packages que nos ayuden o den soporte, veamos cómo agregarlos
+                  y donde buscarlos.
+                </p>
+                <p>
+                  pub.dev es donde podemos buscar los paquetes que nos interesen
+                  incluir en nuestro proyecto, encontraremos además por lo
+                  general un ejemplo de cómo utilizarlos y la manera de
+                  incluirlos.
+                </p>
+                <p>
+                  <a href="https://pub.dev/" target="_blank"
+                    ><paper-button class="colored" raised=""
+                      >Pub Dev Packages</paper-button
+                    ></a
+                  >
+                </p>
+                <p>
+                  Nada nuevo... ahora si conocemos o ya estamos acostumbrados a
+                  utilizar ciertos packages podemos hacer uso de una extensión
+                  de vs code que te servirá de mucha ayuda sobretodo para llevar
+                  un control de tus dependencias y sus versiones actuales.
+                  Veamos como va esto.
+                </p>
+                <p class="image-container">
+                  <img
+                    style="width: 624px;"
+                    src="./flutter_workshop_overactive_files/pasted image 0(6).png"
+                  />
+                </p>
+                <p>
+                  <code>pubspec.yaml:</code> Si recordamos este archivo es el
+                  encargado entre otras cosas gestionar nuestras dependencias,
+                  podrán ver que podemos diferenciar entre dependencies y
+                  dev_dependencies, por si necesitamos incluir packages que solo
+                  usaremos en la fase de dev.
+                </p>
+                <p class="image-container">
+                  <img
+                    style="width: 624px;"
+                    src="./flutter_workshop_overactive_files/pasted image 0(7).png"
+                  />
+                </p>
+                <p>
+                  Vamos a utilizar Pubspec Assist para agregar una dependencia
+                  dev, que se llama lint (personalmente la considero fundamental
+                  incluirla al iniciar un proyecto) simplemente escribiremos el
+                  nombre del package o podemos consultar directamente pub.dev y
+                  seguir las intrucciones.
+                </p>
+                <p class="image-container">
+                  <img
+                    style="width: 624px;"
+                    src="./flutter_workshop_overactive_files/pasted image 0(8).png"
+                  />
+                </p>
+                <p>
+                  de cualquier manera tu resultado final debería ser el
+                  siguiente:
+                </p>
+                <pre><code><span class="pun">...</span><span class="pln">
+dev_dependencies</span><span class="pun">:</span><span class="pln">
+ flutter_test</span><span class="pun">:</span><span class="pln">
+   sdk</span><span class="pun">:</span><span class="pln"> flutter
+ lint</span><span class="pun">:</span><span class="pln"> </span><span class="pun">^</span><span class="lit">1.1</span><span class="pun">.</span><span class="lit">1</span><span class="pln">
+</span><span class="pun">...</span></code></pre>
+                <p>
+                  Ahora solo resta obtener esta dependencia utilizando el
+                  siguiente comando:
+                </p>
+                <p><code>flutter pub get</code></p>
+                <p>
+                  desde la consola en el directorio de nuestro proyecto donde se
+                  encuentra nuestro pubspec.yaml en el caso de vs code solo al
+                  detectar un cambio en este archivo intentará obtener las
+                  dependencias agregadas o simplemente apretando el siguiente
+                  botón en la barra superior..
+                </p>
+                <p class="image-container">
+                  <img
+                    style="width: 624px;"
+                    src="./flutter_workshop_overactive_files/pasted image 0(9).png"
+                  />
+                </p>
+                <aside class="special">
+                  <p>
+                    <strong>Nota: </strong>Notaras que a su vez Pubspec Assist
+                    automáticamente hace tracking de las versiones de los
+                    packages incluidos en el archivo y informandote la última
+                    versión disponible y dándote la oportunidad que con solo un
+                    click puedas actualizarla :)
+                  </p>
+                </aside>
+                <p>
+                  Perfecto ya sabemos cómo incluir dependencias a nuestro
+                  proyecto, aprovechemos este pit stop para agregar Flutter
+                  Hooks (todo tuyo).
+                </p>
+                <h2 is-upgraded=""><strong>StatefulWidget:</strong></h2>
+                <p>
+                  StatefulWidget son utilizados si queremos conservar el estado
+                  de un widgets, básicamente en palabras simples es indicar que
+                  el widget cambio su estado y es necesario volverlo a construir
+                  para que se renderiza adecuadamente y el usuario vea el cambio
+                  en su pantalla. Por ejemplo si nuestro contador no fuese un
+                  StatefulWidget nuestra lógica se ejecutaría nuestra variable
+                  _counter se incrementa pero no verás ningún cambio en la
+                  interfaz, ya que nunca le informamos a Flutter que reconstruya
+                  ese elemento. Se entiende pero no queda claro? vamos a cubrir
+                  un poco el siguiente ejemplo así se entiende un poco mejor.
+                </p>
+                <aside class="special">
+                  <p>
+                    <strong>Nota: </strong>Estas explicaciones no son 100%
+                    técnicos con el fin de entender conceptualmente el
+                    funcionamiento, siempre es recomendable reforzar o guiarnos
+                    con la documentación oficial para cubrir todos los aspectos.
+                  </p>
+                </aside>
+                <p>
+                  Para informar que este widget en particular cambio, debemos
+                  hacer uso del método propio de los StatefulWidgets setState()
+                  el cual se encargara de llamar al meotodo build() encargado de
+                  construir el widget. otro método importante que posee este
+                  tipo de widget es la posibilidad de tener un método
+                  initState() el cual servirá para iniciar el widgets o ejecutar
+                  alguna lógica antes de su primer renderizado:
+                </p>
+                <pre><code><span class="lit">@override</span><span class="pln">
+</span><span class="kwd">void</span><span class="pln"> initState</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="com">// TODO: implement initState</span><span class="pln">
+   </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">initState</span><span class="pun">();</span><span class="pln">
+ </span><span class="pun">}</span></code></pre>
+                <p>
+                  También mencionar el método dispose el cual se ejecutará
+                  cuando este StatefulWidget sea removido del Widget Tree.
+                </p>
+                <pre><code><span class="lit">@override</span><span class="pln">
+</span><span class="kwd">void</span><span class="pln"> dispose</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="com">// TODO: implement dispose</span><span class="pln">
+   </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">initState</span><span class="pun">();</span><span class="pln">
+ </span><span class="pun">}</span></code></pre>
+                <p>
+                  Teniendo estos conceptos básicos analicemos el ejemplo que
+                  viene por defecto al crear un proyecto de Flutter.
+                </p>
+                <pre><code><span class="kwd">import</span><span class="pln"> </span><span class="str">'package:flutter/material.dart'</span><span class="pun">;</span><span class="pln">
 
 </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">()</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> runApp</span><span class="pun">(</span><span class="typ">MyApp</span><span class="pun">());</span><span class="pln">
 
@@ -322,71 +652,173 @@
     </span><span class="pun">);</span><span class="pln">
   </span><span class="pun">}</span><span class="pln">
 </span><span class="pun">}</span></code></pre>
-								<p class="image-container"><img style="width: 359.58px" src="./flutter_workshop_overactive_files/pasted image 0(6).png"></p>
+                <p>
+                  Tenemos nuestra variable int _counter inicializada con el
+                  valor 0, la primera llamada al método build genera el
+                  siguiente widget.
+                </p>
+                <p class="image-container">
+                  <img
+                    style="width: 359.58px;"
+                    src="./flutter_workshop_overactive_files/pasted image 0(10).png"
+                  />
+                </p>
+                <p>
+                  genial, si presionamos el botón, este llama al método
+                  _incrementCounter() el cual incrementa nuestra variable
+                  _counter e informa a través de setState que el estado de ese
+                  widget cambio y tiene que ser reconstruido. Bien como hablamos
+                  al comienzo del Workshop, que tal si.... tocamos un poco esto
+                  usando Flutter Hooks y vemos la diferencia. Para esto vamos a
+                  hacer dos cosas, primero llevar el widget MyHomePage a
+                  presentation layer, aunque todavía no estaría del todo bien ya
+                  que tiene lógica incorporada en la UI, pero vamos de a poco.
+                </p>
+                <aside class="special">
+                  <p>
+                    <strong>Nota: </strong>Con fines de mantener la coherencia
+                    de la guía, vamos a preservar el código de main.dart y
+                    creamos un widget nuevo que extienda de HookWidget.
+                  </p>
+                </aside>
+                <p>
+                  Obtendremos la misma funcionalidad con el siguiente código.
+                </p>
+                <pre><code><span class="kwd">import</span><span class="pln"> </span><span class="str">'package:flutter/material.dart'</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> </span><span class="str">'package:flutter_hooks/flutter_hooks.dart'</span><span class="pun">;</span><span class="pln">
 
-					</google-codelab-step>
-				</div>
-				<div id="controls">
-					<div id="fabs">
-						<a href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#" id="previous-step" title="Previous step" disappear="">Back</a>
-						<div class="spacer"></div>
-						<a href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#" id="next-step" title="Next step">Next</a>
-						<a href="https://codelabs-preview.appspot.com/" id="done" hidden="" title="Codelab complete">Done</a>
-					</div>
-				</div>
-			</div>
-		</google-codelab>
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">StatefulCounterHook</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">HookWidget</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> title</span><span class="pun">;</span><span class="pln">
 
-		<script async="">
-			document.addEventListener("DOMContentLoaded", function () {
-var pubBtn = document.getElementById('publishButton');
-var pubForm = document.getElementById('publishForm');
-var pubStatus = document.getElementById('publishButtonStatus');
+ </span><span class="typ">StatefulCounterHook</span><span class="pun">({</span><span class="typ">Key</span><span class="pln"> key</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">title</span><span class="pun">})</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">super</span><span class="pun">(</span><span class="pln">key</span><span class="pun">:</span><span class="pln"> key</span><span class="pun">);</span><span class="pln">
+  </span><span class="lit">@override</span><span class="pln">
+ </span><span class="typ">Widget</span><span class="pln"> build</span><span class="pun">(</span><span class="typ">BuildContext</span><span class="pln"> context</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">ValueNotifier</span><span class="str">&lt;int&gt;</span><span class="pln"> _counter </span><span class="pun">=</span><span class="pln"> useState</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span><span class="pln">
 
-pubForm.addEventListener('submit', function (e) {
-e.preventDefault();
-pubBtn.disabled = true;
-pubStatus.textContent = '';
-pubStatus.classList.remove('success');
-pubStatus.classList.remove('error');
+   </span><span class="kwd">return</span><span class="pln"> </span><span class="typ">Scaffold</span><span class="pun">(</span><span class="pln">
+     appBar</span><span class="pun">:</span><span class="pln"> </span><span class="typ">AppBar</span><span class="pun">(</span><span class="pln">
+       title</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Text</span><span class="pun">(</span><span class="pln">title</span><span class="pun">),</span><span class="pln">
+     </span><span class="pun">),</span><span class="pln">
+     body</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Center</span><span class="pun">(</span><span class="pln">
+       child</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Column</span><span class="pun">(</span><span class="pln">
+         mainAxisAlignment</span><span class="pun">:</span><span class="pln"> </span><span class="typ">MainAxisAlignment</span><span class="pun">.</span><span class="pln">center</span><span class="pun">,</span><span class="pln">
+         children</span><span class="pun">:</span><span class="pln"> </span><span class="pun">&lt;</span><span class="typ">Widget</span><span class="pun">&gt;[</span><span class="pln">
+           </span><span class="typ">Text</span><span class="pun">(</span><span class="pln">
+             </span><span class="str">'You have pushed the button with Flutter Hooks this many times:'</span><span class="pun">,</span><span class="pln">
+           </span><span class="pun">),</span><span class="pln">
+           </span><span class="typ">Text</span><span class="pun">(</span><span class="pln">
+             </span><span class="str">'${_counter.value}'</span><span class="pun">,</span><span class="pln">
+             style</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Theme</span><span class="pun">.</span><span class="pln">of</span><span class="pun">(</span><span class="pln">context</span><span class="pun">).</span><span class="pln">textTheme</span><span class="pun">.</span><span class="pln">display1</span><span class="pun">,</span><span class="pln">
+           </span><span class="pun">),</span><span class="pln">
+         </span><span class="pun">],</span><span class="pln">
+       </span><span class="pun">),</span><span class="pln">
+     </span><span class="pun">),</span><span class="pln">
+     floatingActionButton</span><span class="pun">:</span><span class="pln"> </span><span class="typ">FloatingActionButton</span><span class="pun">(</span><span class="pln">
+       onPressed</span><span class="pun">:</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> _counter</span><span class="pun">.</span><span class="kwd">value</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> _counter</span><span class="pun">.</span><span class="kwd">value</span><span class="pun">+</span><span class="lit">1</span><span class="pun">,</span><span class="pln">
+       tooltip</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Increment'</span><span class="pun">,</span><span class="pln">
+       child</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Icon</span><span class="pun">(</span><span class="typ">Icons</span><span class="pun">.</span><span class="kwd">add</span><span class="pun">),</span><span class="pln">
+     </span><span class="pun">),</span><span class="pln">
+   </span><span class="pun">);</span><span class="pln">
+ </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+                <p>
+                  Si prestamos atención no existen muchos de los métodos
+                  mencionados como setState, dispose, initState , básicamente
+                  luce igual a un StatelessWidget, Flutter Hooks se encarga de
+                  gestionar el ciclo de vida del widget y al detectar un cambio
+                  en el valor de _counter informa que su estado cambió y ese
+                  widget debe reconstruirse. Buenisimo mas facil uso siempre
+                  Flutter Hooks! la idea de flutter hooks es mantener la
+                  reutilización de los métodos setState() initState() etc. Es
+                  recomendable utilizarlo cuando necesitemos realmente codigo
+                  reutilizable.
+                </p>
+                <p>
+                  Por último existen muchos Hooks que ya viene listo para
+                  utilizar como por ejemplo el Hook de AnimationController ya lo
+                  veremos más adelante, lo importante es que sepas que puedes
+                  construir tus propios Hooks y adaptarlos a tus necesidades.
+                </p>
+             </google-codelab-step
+          >
+        </div>
+        <div id="controls">
+          <div id="fabs">
+            <a
+              href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#"
+              id="previous-step"
+              title="Previous step"
+              disappear=""
+              >Back</a
+            >
+            <div class="spacer"></div>
+            <a
+              href="https://codelabs-preview.appspot.com/?file_id=1_b7mf0ieTkA2IAFNk0Xai3wtZvGBjdOLah98zvq2lFY#"
+              id="next-step"
+              title="Next step"
+              >Next</a
+            ><a
+              href="https://codelabs-preview.appspot.com/"
+              id="done"
+              hidden=""
+              title="Codelab complete"
+              >Done</a
+            >
+          </div>
+        </div>
+      </div></google-codelab
+    >
 
-var req = new XMLHttpRequest();
+    <script async="">
+      document.addEventListener("DOMContentLoaded", function () {
+        var pubBtn = document.getElementById("publishButton");
+        var pubForm = document.getElementById("publishForm");
+        var pubStatus = document.getElementById("publishButtonStatus");
 
-var onError = function () {
-var msg = 'Request failed';
-if (req.statusText) {
-msg += ' with status "' + req.statusText + '"';
-}
-if (req.responseText) {
-msg += ': ' + req.responseText;
-}
-pubStatus.classList.add('error');
-pubStatus.textContent = msg;
-pubBtn.disabled = false;
-};
+        pubForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          pubBtn.disabled = true;
+          pubStatus.textContent = "";
+          pubStatus.classList.remove("success");
+          pubStatus.classList.remove("error");
 
-req.addEventListener('load', function () {
-if (req.status != 200) {
-onError();
-return;
-}
-pubStatus.textContent = ('Publication request submitted' + ' (reload preview to re-publish)');
-pubStatus.classList.add('success');
-});
-req.addEventListener('error', onError);
-req.addEventListener('abort', onError);
-req.open("post", pubForm.action);
-req.send(new FormData(pubForm));
-});
-});
-		</script>
+          var req = new XMLHttpRequest();
 
-		<script src="./flutter_workshop_overactive_files/native-shim.js"></script>
-		<script src="./flutter_workshop_overactive_files/custom-elements.min.js"></script>
-		<script src="./flutter_workshop_overactive_files/prettify.js"></script>
-		<script src="./flutter_workshop_overactive_files/codelab-elements.js"></script>
-		<script src="./flutter_workshop_overactive_files/api.js"></script>
+          var onError = function () {
+            var msg = "Request failed";
+            if (req.statusText) {
+              msg += ' with status "' + req.statusText + '"';
+            }
+            if (req.responseText) {
+              msg += ": " + req.responseText;
+            }
+            pubStatus.classList.add("error");
+            pubStatus.textContent = msg;
+            pubBtn.disabled = false;
+          };
 
+          req.addEventListener("load", function () {
+            if (req.status != 200) {
+              onError();
+              return;
+            }
+            pubStatus.textContent =
+              "Publication request submitted" +
+              " (reload preview to re-publish)";
+            pubStatus.classList.add("success");
+          });
+          req.addEventListener("error", onError);
+          req.addEventListener("abort", onError);
+          req.open("post", pubForm.action);
+          req.send(new FormData(pubForm));
+        });
+      });
+    </script>
 
-	</body>
+    <script src="./flutter_workshop_overactive_files/native-shim.js"></script>
+    <script src="./flutter_workshop_overactive_files/custom-elements.min.js"></script>
+    <script src="./flutter_workshop_overactive_files/prettify.js"></script>
+    <script src="./flutter_workshop_overactive_files/codelab-elements.js"></script>
+    <script src="./flutter_workshop_overactive_files/api.js"></script>
+  </body>
 </html>
